@@ -1,0 +1,52 @@
+@{
+    ViewBag.Title = "Index";
+}
+<section class="cards">
+    <div class="card1">
+        <div class="card-titulo1">
+           @ViewBag.Total
+        </div>
+        <div class="card-footer">Total de cadastros</div>
+    </div>
+    <div class="card2">
+        <div class="card-titulo2">
+            @foreach (var colaborador in Model)
+            {
+            }
+        </div>
+        <div class="card-footer">Cadastros no último mês</div>
+    </div>
+    <div class="card3">
+        <div class="card-titulo3">
+            @foreach (var colaborador in Model)
+            {
+            }
+        </div>
+        <div class="card-footer">Cadastros com pendência de revisão</div>
+    </div>
+</section>
+<section class="tables">
+    <div class="table">
+        <div class="table-titulo">Últimos cadastros</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-Mail</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var colaborador in Model)
+                {
+                    <tr id="colaborador-@colaborador.Id">
+                        <td>@colaborador.Nome</td>
+                        <td>@colaborador.Email</td>
+                        <td>@colaborador.TipoStatus.Nome</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</section>

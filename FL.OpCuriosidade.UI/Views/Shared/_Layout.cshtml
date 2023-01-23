@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OP | @ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" />
+</head>
+<body>
+    <aside class="menu">
+        <div class="titulo">
+            <h1 class="title">OC</h1>
+            <h3 class="sub-title">Operacao Curiosidade</h3>
+        </div>
+        <div class="menu-itens">
+            <ul class="menu-home">
+                <a href="/">
+                <li>
+                    <img src="~/Imagens/icons8-casa-100.png" alt="">
+                    <span>Home</span>
+                </li>
+                </a>
+                <a href="~/Colaboradores">
+                <li>
+                    <img src="~/Imagens/icons8-registration-64.png" alt="">
+                    <span>Cadastro</span>
+                </li>
+                </a>
+                <a href="~/Colaboradores/Relatorios">
+                <li>
+                    <img src="~/Imagens/icons8-reports-58.png" alt="">
+                    <span>Relatorios</span>
+                </li>
+                </a>
+            </ul>
+        </div>
+    </aside>
+    <main>
+       @Html.Partial("_menu")
+        <div class="centro">
+            @RenderBody()
+        </div>
+    </main>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>

@@ -1,0 +1,45 @@
+@model FL.OpCuriosidade.UI.Models.LoginVM
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout-Login.cshtml";
+}
+<div class="container justify-content-sm-center">
+    <h1 class="title">OC</h1>
+    <div class="login-form">
+
+        <form method="post">
+
+            <div class="input-group justify-content-sm-center">
+                <label>E-mail</label>
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", autofocus = "" })
+                <small>
+                    @Html.ValidationMessageFor(model => model.Email, null, new { @class = "text-danger" })
+                </small>
+            </div>
+
+            <div class="input-group justify-content-sm-center">
+                <label>Senha</label>
+                @Html.PasswordFor(model => model.Senha, new { @class = "form-control" })
+                <small>
+                    @Html.ValidationMessageFor(model => model.Senha, null, new { @class = "text-danger" })
+                </small>
+            </div>
+            <div class="input-group form-check">
+                @Html.CheckBoxFor(model => model.PermanecerLogado, new { @class = "btn-log form-check-input" })
+                @Html.LabelFor(model => model.PermanecerLogado)
+            </div>
+
+            <div class="input-group justify-content-sm-center">
+                <button class="btn btn-outline-secondary">
+                    Login
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>
+@section scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/bootstrap.validate.js"></script>
+}

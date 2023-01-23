@@ -1,0 +1,70 @@
+@{
+    ViewBag.Title = "Home";
+}
+<section class="tables">
+    <div class="table">
+        <div class="novo-cadastro">
+            <a class="btn btn-primary" href="~/Colaboradores/AddCadastro" role="button">Novo Cadastro</a>
+
+        </div>
+        <div class="table-titulo">Últimos cadastros</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-Mail</th>
+                    <th>Status</th>
+                    <th>Opcao</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var colaborador in Model)
+                {
+                    <tr id="colaborador-@colaborador.Id">
+                        <td>@colaborador.Nome</td>
+                        <td>@colaborador.Email</td>
+                        <td>@colaborador.TipoStatus.Nome</td>
+                        <td>
+                            <a class="btn btn-outline-success" href="~/Colaboradores/AddCadastro/@colaborador.Id">Editar</a>
+                            <button class="btn btn-outline-danger" onclick="Deletar(@colaborador.Id,'@colaborador.Nome')">Excluir</button>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</section>
+<script>
+   /* document.getElementById("input-pesquisa").addEventListener('keyup', () => {
+        const searchString = document.getElementById("input-pesquisa").value.trim()
+        colaborador(vacinas.filter( => colaborador.nome.includes(searchString)))
+    })*/
+    function Deletar(id, nome) {
+        let resp = confirm(`Tem certeza que deseja excluir o colaborador(a) '${nome}'?`)
+        if (resp) {
+            ConfirmDel(id)
+        }
+    }
+    function ConfirmDel(id) {
+        let xhr = new XMLHttpRequest()
+        const url = `/Colaboradores/Deletar/${id}`
+
+        xhr.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 404) {
+                alert('Colaborador nao localizado')
+            }
+            if (this.readyState === 4 && this.status === 200) {
+                //remover do html
+                let tr = document.querySelector(`#colaborador-${id}`)
+                if (tr !== null) {
+                    tr.remove()
+                }
+                alert('Colaborador excluido com sucesso')
+            }
+        }
+        xhr.open('get', url)
+        xhr.send()
+    }
+
+</script>

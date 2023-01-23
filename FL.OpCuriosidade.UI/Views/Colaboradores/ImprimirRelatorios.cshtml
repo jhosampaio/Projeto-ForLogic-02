@@ -1,0 +1,32 @@
+@{
+    ViewBag.Title = "Imprimir Relatorios";
+}
+<section class="tables">
+    <div class="table">
+        <div class="imprimir">
+            <button class="btn-imprimir" onclick="window.print()">Imprimir / Salvar PDF</button>
+        </div>
+        <div class="table-titulo">Relatórios > Lista de usuarios</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-Mail</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var colaborador in Model)
+                {
+                    <tr id="colaborador-@colaborador.Id">
+                        <td>@colaborador.Nome</td>
+                        <td>@colaborador.Email</td>
+                        <td>@colaborador.TipoStatus.Nome</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</section>
+

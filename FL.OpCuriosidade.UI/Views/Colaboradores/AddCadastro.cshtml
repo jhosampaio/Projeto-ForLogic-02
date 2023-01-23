@@ -1,0 +1,71 @@
+@model FL.OpCuriosidade.UI.Models.Colaborador
+
+
+<div class="forms">
+    <h1 class="titulo-novo-cadastro">Novo Cadastro</h1>
+    <h2 class="sub-titulo-novo-cadastro">Fatos e dados</h2>
+    <div class="estilo-linha"></div>
+    <form method="post">
+
+
+        <div class="input-group">
+            <label for="nomeid">Nome</label>
+            <input type="text" name="nome" id="nomeid" value="@Model.Nome" autofocus required>
+        </div>
+
+        <div class="input-group">
+            <label>E-Mail</label>
+            <input type="email" name="email" id="emailid" value="@Model.Email" required>
+        </div>
+
+        <div class="input-group">
+            <label>Idade:</label>
+            <input class="data-form" type="date" name="data_nasc" id="idadeid" value="@Model.Data_nasc">
+        </div>
+
+        <div class="input-group">
+            <label>Endereço</label>
+            <input type="text" name="end" id="enderecoid" value="@Model.End">
+        </div>
+
+        <div class="input-group">
+            <label>Outras informações</label>
+            <input type="text" name="outras" id="outrasid" value="@Model.outras">
+        </div>
+
+        <div class="input-group">
+            <label>Interesses</label>
+            <input class="text-area" type="text" name="inte" id="outrasid" value="@Model.inte">
+        </div>
+
+        <div class="input-group">
+            <label>Sentimentos</label>
+            <input class="text-area" type="text" name="sent" id="sentid" value="@Model.sent">
+        </div>
+
+        <div class="input-group">
+            <label>Interesses</label>
+            <input class="text-area" type="text" name="valo" id="valoid" value="@Model.valo">
+        </div>
+
+        <div class="input-group">
+            <label>Status</label><br>
+            <select name="TipoStatusId" class="form-control status-tipo">
+                <option value="1">Ativo</option>
+                <option value="2">Inativo</option>
+            </select>
+        </div>
+        <div class="btns">
+            <button class="btn-cancelar">Salvar</button>
+            <a class="btn-cancelar" href="~/Colaboradores"> Cancelar</a>
+        </div>
+
+    </form>
+
+</div>
+@section scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/bootstrap.validate.js"></script>
+}
+

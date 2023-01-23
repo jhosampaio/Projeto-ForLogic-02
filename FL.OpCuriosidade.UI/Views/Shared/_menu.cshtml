@@ -1,0 +1,17 @@
+<header class="header">
+    <div class="menu-header">
+        <div class="pesquisa">
+            <input id="input-pesquisa" class="input-pesquisa" type="text" name="pesquisa" placeholder="Pesquisar..." />
+        </div>
+        <div>
+            @if (User.Identity.IsAuthenticated)
+            {              
+            <a class="logado">
+                @User.Identity.Name
+            </a>
+            <a class="logado" href="@Url.Action("LogOut", "Conta")">LogOut</a>
+           
+        }
+        </div>
+    </div>
+</header>
